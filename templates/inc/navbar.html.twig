@@ -1,0 +1,28 @@
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+    <div class="container">
+        <a href="/" class="navbar-brand">NFQ Test</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+            <span class="navbar-toggle-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mobile-nav">
+            <ul class="navbar-nav ml-auto">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a href="/admin/users" class="nav-link">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/groups" class="nav-link">Groups</a>
+                    </li>
+                {% endif %}
+                {% if (is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')) %}
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>

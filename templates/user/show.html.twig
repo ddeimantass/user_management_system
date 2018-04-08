@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.name }}{% endblock %}
+
+{% block body %}
+    <h1>Hi {{ user.name }}</h1>
+    <br>
+    {% if user.clubs %}
+        <table id="groups" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Group Title</th>
+                <th>Users in group</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in user.clubs %}
+                <tr>
+                    <td>{{ group.title }}</td>
+                    <td>{{ group.users|length }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No groups to display</p>
+    {% endif %}
+{% endblock %}

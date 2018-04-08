@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groups{% endblock %}
+
+{% block body %}
+    <a href="/admin/group/new" class="btn btn-success" >New Group</a>
+    {% if groups %}
+        <table id="groups" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Users</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in groups %}
+                <tr>
+                    <td>{{ group.title }}</td>
+                    <td>{{ group.users|length }}</td>
+                    <td>
+                        <a href="/admin/group/edit/{{ group.id }}" class="btn btn-light">Edit</a>
+                        {% if group.users|length < 1 %}
+                            <a href="/admin/group/delete/{{ group.id }}" class="btn btn-danger delete-group" >Delete</a>
+                        {% endif %}
+
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(groups) }}
+        </div>
+    {% else %}
+        <p>No groups to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}

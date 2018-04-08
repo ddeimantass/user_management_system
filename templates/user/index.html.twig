@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <a href="/admin/user/new" class="btn btn-success">New User</a>
+    {% if users %}
+        <table id="users" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Groups in</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                {% if user.role.title != "Admin" %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.clubs|length }}</td>
+                        <td>
+                            <a href="/admin/user/{{ user.id }}" class="btn btn-dark">Show</a>
+                            <a href="/admin/user/edit/{{ user.id }}" class="btn btn-light">Edit</a>
+                            <a href="/admin/user/delete/{{ user.id }}" class="btn btn-danger delete-user">Delete</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(users) }}
+        </div>
+    {% else %}
+        <p>No users to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}

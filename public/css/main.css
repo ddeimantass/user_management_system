@@ -1,0 +1,14 @@
+#form_clubs{
+    height: 200px;
+}
+.form-control{
+    margin-bottom: 10px;
+}
+.login-form{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+    text-align: center;
+}
