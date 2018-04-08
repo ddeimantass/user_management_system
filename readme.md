@@ -16,7 +16,7 @@
  
  Enter these comands to terminal:
  - `composer install`
- - edit .env file
+ - Edit .env file
  - `php bin/console doctrine:database:create`
  - `php bin/console doctrine:migrations:diff`
  - `php bin/console doctrine:migrations:migrate`
@@ -26,5 +26,15 @@
   - `bin/console server:run`
   - Go to specified IP address (E.g. 127.0.0.1:8000)
   
+ ### Test credentials
+ 
+ - Role: admin
+ - Username: UserNameAdmin
+ - Password : PassAdmin
 
-
+ 
+ - Role: user
+ - Username: UserName1
+ - Password : Pass1
+ 
+ 
