@@ -16,6 +16,7 @@
  
  Enter these comands to terminal:
  - `composer install`
+ - edit .env file
  - `php bin/console doctrine:migrations:diff`
  - `php bin/console doctrine:migrations:migrate`
  - `php bin/console doctrine:fixtures:load`
